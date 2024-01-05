@@ -1,0 +1,140 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\title{CS 581: Blockchain Science and Technology}
+%\date[ISPN '80]{27th International Symposium of Prime Numbers}
+\titlegraphic{\includegraphics[width=2cm]{logos/logo.pdf}}
+%\author[Euclid]{Euclid of Alexandria \texttt{euclid@alexandria.edu}}
+\usepackage[most]{tcolorbox}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usetheme{guwahati}
+
+\begin{document}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\frame{
+  \frametitle{Course Objectives}
+
+\begin{tcolorbox}
+
+  Bitcoin is the first \textcolor{red}{decentralized  cryptocurrency}. Nodes in the peer-to-peer bitcoin network verify transactions through cryptography and record them in a \textcolor{red}{public distributed ledger}, called a blockchain, \textcolor{red}{ without central oversight}
+
+ \flushright \textit{Wikipedia}
+
+ \end{tcolorbox}
+\only<2->{
+ Understand each of those ``features'', the tradeoffs involved and generalize when possible.}
+}
+
+\frame{
+  \frametitle{Lecture Plan}
+  
+\begin{itemize}
+ \item<1-> Currency/Money
+ \item<2-> Permissionless Digital Identity
+ \item<3-> Hashing
+\end{itemize}
+
+}
+
+\frame{
+  \frametitle{Currency}
+  
+\begin{itemize}
+ \item<1->  Everyone deposits  their assets at a central godown.
+ \item<2->  The godown issues certificates.
+ \item<3->  People trade the certificates.
+ \item<4->  Anyone can redeem the certificates for the underlying anytime.
+ \item<5->  Standardize the certificates.
+ \item<6->  Build electronic exchanges for trade.
+\end{itemize}
+}
+
+\frame{
+  \frametitle{Simplified Currency }
+\begin{itemize}
+ \item Just one type of asset!
+ \item The certificate contains just a number.
+\end{itemize}
+  
+}
+
+
+\frame{
+  \frametitle{Ledger for currency(First Attempt)}
+
+  \begin{tcolorbox}[colback=white,colframe=black,width=0.8\textwidth]
+    \begin{center}
+      
+
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{Universal Cash Positions}\tabularnewline
+\hline
+\hline
+  \multicolumn{3}{|c|}{}\tabularnewline
+  \multicolumn{3}{|c|}{}\tabularnewline
+\hline
+Name & Value & Remark\tabularnewline
+\hline
+ Aadarshraj& 35 & \tabularnewline
+\hline
+ Amjad&  87& \tabularnewline
+\hline
+ Gunjan&  -43& \tabularnewline
+\hline
+ Harsh& -34  & \tabularnewline
+\hline
+\end{tabular}
+    \end{center}
+
+
+
+    
+  \end{tcolorbox}
+
+}
+
+
+\frame{
+  \frametitle{Digital Identity via PKC}
+\only<1->{
+  \begin{tcolorbox}
+    We can find $e$, $d$ and $n$ such that
+
+    $$(m)^{ed} \equiv (m) \mod n $$
+  \end{tcolorbox}
+}
+
+
+
+\only<2->{
+   \begin{tcolorbox}
+    Knowing $e$, and $n$ such that doesn't help in computing $d$.
+  \end{tcolorbox}
+}
+}
+\frame{
+  \frametitle{RSA Cryptosystem}
+  
+\begin{itemize}
+ \item Choose large primes $p$ and $q$. Let $n=pq$
+ \item Choose large $d$ s.t $gcd(d, \phi(n)) = 1$.
+ \item Fix $e$ as $d's$ inverse $mod \phi(n)$
+ \end{itemize}
+
+  \begin{tcolorbox}
+  $(m)^{ed} = (m)^{k*\phi(n) +1}= (m^{\phi(n)})^{k}\times m = m \mod n$
+  \end{tcolorbox}
+ 
+}
+
+\frame{
+\frametitle{Immutability via Hashing}
+}
+\end{document}
