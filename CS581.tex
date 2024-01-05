@@ -10,6 +10,15 @@
 \usepackage{xcolor}
 \usetheme{guwahati}
 
+\lstdefinestyle{mystyle}{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  numbers=left
+}
+
+\lstset{style=mystyle}
+
 \begin{document}
 
 
@@ -125,7 +134,7 @@ Name & Value & Remark\tabularnewline
 \begin{itemize}
  \item Choose large primes $p$ and $q$. Let $n=pq$
  \item Choose large $d$ s.t $gcd(d, \phi(n)) = 1$.
- \item Fix $e$ as $d's$ inverse $mod \phi(n)$
+ \item Fix $e$ as inverse of  $d$ ( $mod \phi(n)$)
  \end{itemize}
 
   \begin{tcolorbox}
@@ -135,6 +144,115 @@ Name & Value & Remark\tabularnewline
 }
 
 \frame{
-\frametitle{Immutability via Hashing}
+  \frametitle{Immutability via Hashing}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+        % Block
+        \draw (0,0) rectangle (4,1);
+        \node at (2,0.5) {\scriptsize Block Header};
+        
+        % Version
+        \draw (0,1) rectangle (1,2);
+        \node at (0.5,1.5) {\scalebox{.65}{\tiny Version}};
+        
+        % Previous Hash
+        \draw (1,1) rectangle (3,2);
+        \node at (2,1.5){\scalebox{.65}{\tiny Previous Hash}};
+        
+        % Merkle Root
+        \draw (3,1) rectangle (4,2);
+        \node at (3.5,1.5) {\scalebox{.65}{\tiny Merkle Root}};
+        
+        % Transactions
+        \draw (0,2) rectangle (4,4);
+        \node at (2,3) {\scriptsize Transactions};
+        
+        % Nonce
+        \draw (0,4) rectangle (1,5);
+        \node at (0.5,4.5) {\scalebox{.5}{\tiny Nonce}};
+        
+        % Timestamp
+        \draw (1,4) rectangle (2,5);
+        \node at (1.5,4.5) {\scalebox{.5}{\tiny Timestamp}};
+        
+        % Difficulty Target
+        \draw (2,4) rectangle (4,5);
+        \node at (3,4.5) {\scalebox{.5}{\tiny Difficulty Target}};
+    \end{tikzpicture}
+    \caption{Bitcoin Block Structure}
+    \label{fig:block_structure}
+\end{figure}
+  
+}
+
+\frame{
+  \frametitle{}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+        % Block 1
+        \draw (0,0) rectangle (4,1);
+        \node at (2,0.5) {\scalebox{0.7}{Block 1}};
+        
+        % Version
+        \draw (0,1) rectangle (1,2);
+        \node at (0.5,1.5) {\scalebox{0.6}{Version}};
+        
+        % Previous Hash
+        \draw (1,1) rectangle (3,2);
+        \node at (2,1.5) {\scalebox{0.6}{Previous Hash}};
+        
+        % Merkle Root
+        \draw (3,1) rectangle (4,2);
+        \node at (3.5,1.5) {\scalebox{0.6}{Merkle Root}};
+        
+        % Zigzag pointer 1
+        \draw[->, line join=round, decorate, decoration={zigzag,segment length=4,amplitude=.9,pre=lineto,pre length=4pt}] (4,0.5) -- (6,0.5);
+        
+        % Block 2
+        \draw (6,0) rectangle (10,1);
+        \node at (8,0.5) {\scalebox{0.7}{Block 2}};
+        
+        % Version
+        \draw (6,1) rectangle (7,2);
+        \node at (6.5,1.5) {\scalebox{0.6}{Version}};
+        
+        % Previous Hash
+        \draw (7,1) rectangle (9,2);
+        \node at (8,1.5) {\scalebox{0.6}{Previous Hash}};
+        
+        % Merkle Root
+        \draw (9,1) rectangle (10,2);
+        \node at (9.5,1.5) {\scalebox{0.6}{Merkle Root}};
+        
+        % Zigzag pointer 2
+        \draw[->, line join=round, decorate, decoration={zigzag,segment length=4,amplitude=.9,pre=lineto,pre length=4pt}] (10,0.5) -- (12,0.5);
+        
+        % Block 3
+        \draw (12,0) rectangle (16,1);
+        \node at (14,0.5) {\scalebox{0.7}{Block 3}};
+        
+        % Version
+        \draw (12,1) rectangle (13,2);
+        \node at (12.5,1.5) {\scalebox{0.6}{Version}};
+        
+        % Previous Hash
+        \draw (13,1) rectangle (15,2);
+        \node at (14,1.5) {\scalebox{0.6}{Previous Hash}};
+        
+        % Merkle Root
+        \draw (15,1) rectangle (16,2);
+        \node at (15.5,1.5) {\scalebox{0.6}{Merkle Root}};
+        
+    \end{tikzpicture}
+    \caption{Bitcoin Blocks with Zigzag Pointers}
+    \label{fig:blocks_with_pointers}
+\end{figure}
+  
 }
 \end{document}
+
+ 
